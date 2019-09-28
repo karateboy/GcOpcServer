@@ -46,12 +46,12 @@ int main()
 	signal(SIGINT, stopHandler);
 	signal(SIGTERM, stopHandler);
 
-	thread readerThread(exportReader);
-
 	std::cout << "Gc OPC Server Start!\n";
 	UA_ServerConfig* config = UA_ServerConfig_new_default();
 	UA_Server* server = UA_Server_new(config);
 	addRealtimeVariable(server);
+	thread readerThread(updateRealtimeData);
+
 	//addValueCallbackToCurrentTimeVariable(server);
 
 	UA_StatusCode retval = UA_Server_run(server, &running);

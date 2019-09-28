@@ -13,4 +13,4 @@ typedef struct {
 extern UA_DateTime injectionDate;
 extern UA_Int32 selector;
 extern vector<NAME_VALUE> mtValues;
-extern void exportReader();
+extern void updateRealtimeData();
